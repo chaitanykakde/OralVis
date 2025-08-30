@@ -425,14 +425,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🏆 Awards & Recognition
-
-- 🥇 **Best Healthcare App 2024** - Mobile Health Awards
-- 🏥 **Dental Innovation Award** - American Dental Association
-- 📱 **Material Design Excellence** - Google Play Awards
-
----
-
-**Built with ❤️ for healthcare professionals worldwide**
 
 *Empowering dental care through innovative mobile technology*
