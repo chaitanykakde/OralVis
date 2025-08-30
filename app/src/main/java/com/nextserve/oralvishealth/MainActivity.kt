@@ -4,6 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import android.widget.TextView
+import android.view.View
+import android.widget.LinearLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -31,8 +37,7 @@ class MainActivity : AppCompatActivity() {
         // initialize firebase auth
         auth = FirebaseAuth.getInstance()
 
-        // setup toolbar as action bar
-        setSupportActionBar(binding.toolbar)
+        // Remove toolbar setup since we're using custom app bar
 
         val navView: BottomNavigationView = binding.bottomNavigation
 
@@ -40,21 +45,13 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as androidx.navigation.fragment.NavHostFragment
         val navController = navHostFragment.navController
         
-        // these are the main tabs - home, cloud, profile
-        // each one is a top level destination so no back arrow needed
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_sessions, R.id.nav_cloud
-            ), binding.drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        // setup bottom navigation with nav controller
         navView.setupWithNavController(navController)
-        
-        // hide the default toolbar title since we have custom greeting
-        supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // setup profile icon click to open navigation drawer
-        binding.ivProfile.setOnClickListener {
+        // setup custom app bar profile icon click to open navigation drawer
+        val customAppBar = binding.root.findViewById<LinearLayout>(R.id.customAppBar)
+        val profileIcon = customAppBar.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.ivAppBarProfile)
+        profileIcon.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.END)
         }
 
@@ -85,6 +82,9 @@ class MainActivity : AppCompatActivity() {
 
         // user is logged in, so load their profile data
         loadUserProfile()
+        
+        // Handle window insets for edge-to-edge display
+        setupWindowInsets()
     }
 
     // load user profile info from firebase auth
@@ -94,7 +94,9 @@ class MainActivity : AppCompatActivity() {
         currentUser?.let { user ->
             // fallback to "User" if no display name set
             val displayName = user.displayName ?: "User"
-            binding.tvGreeting.text = getString(R.string.hello_user, displayName)
+            val customAppBar = binding.root.findViewById<LinearLayout>(R.id.customAppBar)
+            val greetingText = customAppBar.findViewById<TextView>(R.id.tvAppBarTitle)
+            greetingText.text = getString(R.string.hello_user, displayName)
             
             // setup navigation drawer header with user info
             val headerView = binding.navigationView.getHeaderView(0)
@@ -106,21 +108,27 @@ class MainActivity : AppCompatActivity() {
             tvNavUserEmail.text = user.email
             
             // load profile picture if available, otherwise use app logo
-            user.photoUrl?.let { photoUrl ->
-                Glide.with(this)
+            val photoUrl = user.photoUrl
+            if (photoUrl != null) {
+                Glide.with(this@MainActivity)
                     .load(photoUrl)
                     .placeholder(R.drawable.app_logo)
-                    .into(binding.ivProfile)
-                
-                // also set it in nav drawer
-                Glide.with(this)
-                    .load(photoUrl)
-                    .placeholder(R.drawable.app_logo)
+                    .error(R.drawable.app_logo)
                     .into(ivNavProfile)
-            } ?: run {
-                // no profile photo, use app logo
-                binding.ivProfile.setImageResource(R.drawable.app_logo)
+            } else {
                 ivNavProfile.setImageResource(R.drawable.app_logo)
+            }
+            
+            // also load profile image in custom app bar
+            val appBarProfileIcon = customAppBar.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.ivAppBarProfile)
+            if (photoUrl != null) {
+                Glide.with(this@MainActivity)
+                    .load(photoUrl)
+                    .placeholder(R.drawable.app_logo)
+                    .error(R.drawable.app_logo)
+                    .into(appBarProfileIcon)
+            } else {
+                appBarProfileIcon.setImageResource(R.drawable.app_logo)
             }
         }
     }
@@ -133,6 +141,24 @@ class MainActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
+    }
+
+    // Setup window insets to prevent custom app bar from overlapping with status bar
+    private fun setupWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            
+            // Apply top padding to custom app bar status bar spacer
+            val customAppBar = binding.root.findViewById<LinearLayout>(R.id.customAppBar)
+            val statusBarSpacer = customAppBar.findViewById<View>(R.id.statusBarSpacer)
+            statusBarSpacer.layoutParams.height = systemBars.top
+            statusBarSpacer.requestLayout()
+            
+            // Apply bottom padding to bottom navigation for navigation bar
+            binding.bottomNavigation.updatePadding(bottom = systemBars.bottom)
+            
+            insets
+        }
     }
 
     // handle back button - close drawer first if its open
