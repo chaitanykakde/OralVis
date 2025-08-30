@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.OralVisHealth" parent="Theme.Material3.Light">
+        <!-- Force light theme always - no dark mode -->
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorPrimaryVariant">@color/primary_green_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_teal</item>
+        <item name="colorSecondaryVariant">@color/accent_teal_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorSurface">@color/surface_white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="android:statusBarColor">@color/primary_green</item>
+        <item name="android:navigationBarColor">@color/surface_white</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Theme.OralVisHealth.FullScreen" parent="Theme.OralVisHealth">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+    </style>
+
+    <style name="Theme.OralVisHealth" parent="Base.Theme.OralVisHealth">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <!-- Splash Screen Theme -->
+    <style name="Theme.OralVisHealth.Splash" parent="Theme.OralVisHealth">
+        <item name="android:windowBackground">@color/primary_green</item>
+        <item name="android:statusBarColor">@color/primary_green</item>
+        <item name="android:navigationBarColor">@color/primary_green</item>
+    </style>
+</resources>

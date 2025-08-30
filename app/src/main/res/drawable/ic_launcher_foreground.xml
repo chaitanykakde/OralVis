@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Simple white background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,0h108v108h-108z" />
+    
+    <!-- App logo centered -->
+    <group android:translateX="54" android:translateY="54">
+        <!-- Simplified tooth design -->
+        <path
+            android:fillColor="#4CAF50"
+            android:pathData="M-20,-20c-8,0 -12,6 -12,14v10c0,10 4,16 12,20c8,-4 12,-10 12,-20v-10c0,-8 -4,-14 -12,-14z" />
+        
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-15,-15c-6,0 -9,4 -9,10v8c0,8 3,12 9,15c6,-3 9,-7 9,-15v-8c0,-6 -3,-10 -9,-10z" />
+    </group>
+</vector>

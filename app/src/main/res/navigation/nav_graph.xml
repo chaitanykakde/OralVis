@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_sessions">
+
+    <fragment
+        android:id="@+id/nav_sessions"
+        android:name="com.nextserve.oralvishealth.ui.home.HomeFragment"
+        android:label="Sessions" />
+
+    <fragment
+        android:id="@+id/nav_cloud"
+        android:name="com.nextserve.oralvishealth.ui.cloud.CloudFragment"
+        android:label="Cloud Sessions" />
+
+</navigation>

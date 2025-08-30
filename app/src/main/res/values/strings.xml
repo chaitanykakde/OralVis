@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">OralVis Health</string>
+    
+    <!-- Authentication -->
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="sign_in_to_continue">Sign in to continue to OralVis</string>
+    
+    <!-- Navigation -->
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="home">Home</string>
+    <string name="sessions">Sessions</string>
+    <string name="search">Search</string>
+    <string name="cloud">Cloud</string>
+    <string name="feedback">Feedback</string>
+    <string name="logout">Logout</string>
+    
+    <!-- Sessions -->
+    <string name="no_sessions_found">No sessions found. Tap the \'+\' button to start a new one.</string>
+    <string name="new_session">New Session</string>
+    <string name="session_id">Session ID</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="patient_age">Patient Age</string>
+    <string name="save_session">Save Session</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    
+    <!-- Camera -->
+    <string name="capture">Capture</string>
+    <string name="finish_session">Finish Session</string>
+    <string name="images_captured">Images captured: %1$d</string>
+    
+    <!-- Search -->
+    <string name="search_session">Search Session</string>
+    <string name="enter_session_id">Enter Session ID</string>
+    <string name="session_not_found">Session with ID not found.</string>
+    
+    <!-- Session Details -->
+    <string name="session_details">Session Details</string>
+    <string name="name_label">Name: %1$s</string>
+    <string name="age_label">Age: %1$s</string>
+    <string name="session_id_label">Session ID: %1$s</string>
+    
+    <!-- Validation -->
+    <string name="field_required">This field is required</string>
+    <string name="session_saved_successfully">Session saved successfully</string>
+    
+    <!-- Permissions -->
+    <string name="camera_permission_required">Camera permission is required to take photos</string>
+    
+    <!-- General -->
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="loading">Loading...</string>
+    
+    <!-- Cloud -->
+    <string name="upload_to_cloud">Upload to Cloud</string>
+    <string name="upload_session_question">Do you want to upload this session to Google Drive?</string>
+    <string name="upload">Upload</string>
+    <string name="uploading">Uploading...</string>
+    <string name="upload_progress">%1$d%%</string>
+    <string name="upload_status">Uploading image %1$d of %2$d...</string>
+    <string name="session_uploaded_successfully">Session uploaded successfully!</string>
+    <string name="upload_failed">Upload failed. Please try again.</string>
+    <string name="no_cloud_sessions">No sessions found in the cloud.</string>
+    <string name="fetching_cloud_sessions">Fetching sessions from cloud...</string>
+    <string name="download_session">Downloading session...</string>
+    
+    <!-- Firebase -->
+    <string name="default_web_client_id">20660527005-i7p4tfjmmi928mp0o7oiq49lq033teds.apps.googleusercontent.com</string>
+</resources>

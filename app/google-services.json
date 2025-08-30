@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "20660527005",
+    "firebase_url": "https://oralvis-20c75-default-rtdb.firebaseio.com",
+    "project_id": "oralvis-20c75",
+    "storage_bucket": "oralvis-20c75.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20660527005:android:ff19e0f83da3000bb19974",
+        "android_client_info": {
+          "package_name": "com.nextserve.oralvishealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20660527005-i7p4tfjmmi928mp0o7oiq49lq033teds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX3_PlcC9oPvjrj3-iJaPrfa4gEQZ6dj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20660527005-i7p4tfjmmi928mp0o7oiq49lq033teds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
