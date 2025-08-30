@@ -404,19 +404,7 @@ Splash → Login → Dashboard → Camera → Capture → Save → Sync → Repo
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Development Team
 
-- **Lead Developer**: Healthcare App Development Team
-- **Company**: NextServe Healthcare Solutions  
-- **Project**: OralVisHealth Management System
-- **Architecture**: MVVM with Clean Architecture principles
-
-## 📞 Support & Contact
-
-### For Healthcare Professionals
-- **Email**: support@nextserve.com
-- **Phone**: +1-800-ORAL-VIS
-- **Website**: [www.oralvishealth.com](https://www.oralvishealth.com)
 
 ### For Developers
 - **Documentation**: [GitHub Wiki](https://github.com/your-username/OralVisHealth/wiki)
